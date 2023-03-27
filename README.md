@@ -11,4 +11,4 @@ There is an issue with SCRAM for Mac users. https://stackoverflow.com/questions/
 ""Future improvements: ***Accouncement to Dr.Bennett***""
 
 1. Change SCRAM authetication to md5.
-2. Frontend should be done using JS intead of python. But right now, we are fresh undergrad students, and we are not knowledgeable on JS or C# :D .We are      learning python for now and we implemented this application the best possible way, by learning from all the errors :) .!. We also used a little of JS      and HTML in the frontend.
+2. Frontend should be done using JS intead of python. But right now, we are fresh undergrad students, and are not very familiar on JS or C# :D .We are      learning python and we implemented this application the best possible way, by learning from all the errors :) .!. We also used a little of JS and HTML in the frontend.
