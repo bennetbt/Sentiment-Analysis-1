@@ -1,5 +1,6 @@
 from fastapi import FastAPI, Request, Form, File, UploadFile
 from fastapi.responses import HTMLResponse
+from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
 import requests
 import psycopg2
@@ -29,27 +30,27 @@ async def index(request: Request):
             }
         </style>
         <script>
-            function sendText() {
-                var text = document.getElementById("text").value;
-                fetch("/sentiment", {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({text: text})
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                    // update the HTML with the response data
-                    document.getElementById("sentence").innerHTML = "Sentence or Paragraph: " + text;
-                    document.getElementById("sentiment").innerHTML = "Sentiment: " + data.sentiment;
-                    document.getElementById("score").innerHTML = "Score: " + data.score;
-
-                    // do something with the response data
-                })
-                .catch(error => console.error(error));
-            }
+function sendText() {
+    var text = document.getElementById("text").value;
+    fetch("/sentiment", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({text: text})
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        // update the HTML with the response data
+        document.getElementById("sentence").innerHTML = "Sentence or Paragraph: " + text;
+        document.getElementById("sentiment").innerHTML = "Sentiment: " + data.sentiment;
+        document.getElementById("score").innerHTML = "Score: " + data.score;
+        // reload the webpage to show updated results
+        window.location.reload();
+    })
+    .catch(error => console.error(error));
+}
         </script>
     </head>
     <body>
@@ -108,7 +109,6 @@ async def index(request: Request):
 """
     return HTMLResponse(content=html_content, status_code=200)
 
-
 @app.post("/sentiment")
 async def analyze_sentiment(text_data: TextData):
     text = text_data.text
@@ -125,8 +125,9 @@ async def analyze_sentiment(text_data: TextData):
     conn.commit()
     cur.close()
     conn.close()
-    
     return {"sentiment": sentiment, "score": score}
+
+
 
 @app.post("/sentiment/{ID}")
 async def delete_sentiment(ID: int):
@@ -136,9 +137,8 @@ async def delete_sentiment(ID: int):
     conn.commit()
     cur.close()
     conn.close()
-    print("Output ID : ",ID)
-    
-    return {"message": f"Sentiment with ID {ID} deleted"}
+    return RedirectResponse(url="http://localhost:1172", status_code=303)
+
 
 if __name__ == "__main__":
     import uvicorn
