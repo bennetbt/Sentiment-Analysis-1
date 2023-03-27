@@ -52,15 +52,19 @@ function sendText() {
     .catch(error => console.error(error));
 }
         </script>
-    </head>
+</head>
     <body>
-        <div class="centered">
-            <h2>Enter a sentence or paragraph:</h2>
-            <form onsubmit="sendText(); return false;">
-                <textarea id="text"></textarea>
-                <br>
-                <button type="submit">Classify Text</button>
-            </form>
+       <div class="centered" style="background-color: #f2f2f2; padding: 20px;">
+    <h1 style="text-align: center;">Welcome to Sentiment Analyzer</h1>
+    	<p></p>	
+	<input type="image" img align="top" src="https://www.freecodecamp.org/news/content/images/2020/09/wall-5.jpeg" width="280" height="200">
+    <div style="text-align:center">
+        <h2>Enter a sentence or paragraph:</h2>
+        <form onsubmit="sendText(); return false;">
+            <textarea id="text" style="width: 80%; height: 150px; padding: 10px; border: 2px solid #ccc; border-radius: 4px;"></textarea>
+            <br><br>
+            <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 18px; border: none; border-radius: 4px; cursor: pointer;">Classify Text</button>
+        </form>
             <div id="result">
                 <p id="sentence"></p>
                 <p id="sentiment"></p>
