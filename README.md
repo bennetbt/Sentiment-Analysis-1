@@ -1,6 +1,11 @@
 # Sentiment-Analysis for CSCI 5400 by Uday, Neel, Pragna and Ramiro under Dr. Bennett. 
 **Before starting, We wanted to thank Dr.Jacob Gilenwater for sharing the crash courses on HTML and FASTAPI examples. That helped alot.**
+**Intallation Materals:**
+1. VSCode
+2. Docker
+3. Python 3.x.x along with pip3(Installation details are below)
 
+**Installation Details:**
 Go to the project directory and please sure you have python and pip installed.
 You can check it using the command **python --version** . If not, Please install it using the recommendations in https://realpython.com/installing-python/#what-your-options-are 
 
