@@ -4,6 +4,8 @@
 Go to the project directory and please sure you have python and pip installed.
 You can check it using the command **python --version** . If not, Please install it using the recommendations in https://realpython.com/installing-python/#what-your-options-are 
 
+Download an IDE which is VSCode and open the project directory. All the requriment libraries will be automatically downlaoded as specified in the requirements.txt 
+
 Run below in project directory to build the images and bring up the containers
 
 ***docker compose up --build*** and can access the webpage with the url http://localhost:1172/ 
