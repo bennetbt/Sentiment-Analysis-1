@@ -7,10 +7,10 @@
 
 **Installation Details:**
 1.Open VSCode. Open new terminal, run the command-- git clone https://github.com/udaynath1171/Sentiment-Analysis/
-Go to the project directory of the cloned project and please sure you have python and pip installed.
+Open to the project directory of the cloned project and please make sure to go into the project directory in your terminal and then make sure you have python and pip installed.
 You can check it using the command **python --version** . If not, Please install it using the recommendations in https://realpython.com/installing-python/#what-your-options-are 
 
-Download an IDE which is VSCode and open the project directory. All the requriment libraries will be automatically downlaoded as specified in the requirements.txt. Please make sure to have the docker extension installed and also make sure that its integrated with your docker.( You can see the docker on the left most sided on the VSCode.
+In VSCode,Jsut make sure you already opened the project directory. All the requriment libraries will be automatically downlaoded as specified in the requirements.txt. Please make sure to have the docker extension installed and also make sure that its integrated with your docker.( You can see the docker on the left most sided on the VSCode.
 
 Run below in project directory to build the images and bring up the containers
 
