@@ -23,7 +23,7 @@ jobs:
       run: docker compose -f "docker-compose.yml" up -d --build
       
     - name: Run the python unit tests for sentimental_analysis
-      run: docker exec -it sentiment-analysis-api-1 sh -c 'cd app/sentimental_analysis/tests && pytest'
+      run: docker exec -it sentiment-analysis-api-1 sh -c 'pytest'
 
     - name: Run the frontend unit tests
       run: docker exec -it sentiment-analysis-api-1 sh -c 'cd app/web/tests && pytest'
