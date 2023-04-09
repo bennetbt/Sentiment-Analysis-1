@@ -1,5 +1,5 @@
 # Name: Integration-environment.yml
-# Description: This will build the integration environment
+# Description: Spinning up Int-Env
 
 name: Setup Integration Environment
 
@@ -26,7 +26,7 @@ jobs:
       run: docker exec sentiment-analysis-api-1 sh -c 'pytest'
 
     - name: Run the frontend unit tests
-      run: docker exec -it sentiment-analysis-api-1 sh -c 'cd app/web/tests && pytest'
+      run: docker exec sentiment-analysis-web-1 sh -c 'pytest'
       
     - name: Destroy the containers
       run: docker compose -f "docker-compose.yml" down
