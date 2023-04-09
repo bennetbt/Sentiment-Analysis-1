@@ -21,3 +21,12 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker images
       run: docker compose -f "docker-compose.yml" up -d --build
+      
+    - name: Run the python unit tests for sentimental_analysis
+      run: docker exec -it sentiment-analysis-api-1 bash 'cd app/sentimental_analysis/tests && pytest'
+
+    - name: Run the frontend unit tests
+      run: docker exec -it sentiment-analysis-api-1 bash 'cd app/web/tests && pytest'
+      
+    - name: Destroy the containers
+      run: docker compose -f "docker-compose.yml" down
