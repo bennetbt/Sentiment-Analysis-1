@@ -38,11 +38,10 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Build the Docker images
       run: |
-       docker build -t getting-started ./sentimental_analysis
-       docker run -dp 1171:1171 getting-started
+       docker build -t test-backend ./sentimental_analysis
+       docker run -dp 1171:1171 test-backend
         
    # - name: Build the Docker images
     #  run: docker compose -f "docker-compose.yml" up -d --build    
     - name: Test with pytest
-      run: |
-        pytest
+      run: docker exec test-backend sh -c 'pytest'
