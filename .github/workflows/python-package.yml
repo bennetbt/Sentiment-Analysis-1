@@ -38,6 +38,6 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Build the Docker images to run tests for the dev environment
       run: docker compose -f "docker-compose.yml" up -d --build
-   # - name: Test with pytest
-    #  run: |
-     #   pytest
+    - name: Test with pytest
+      run: |
+        pytest
