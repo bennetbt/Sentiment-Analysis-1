@@ -4,6 +4,7 @@
 name: Setup Integration Environment
 
 # Only trigger, when the Dev unit testing workflow succeeded
+
 on:
   workflow_run:
     workflows:
@@ -11,6 +12,8 @@ on:
       - "Python Backend testing"
     types:
       - completed
+    branches:
+      - master
 
 jobs:
   build:
