@@ -12,7 +12,7 @@ on:
     types:
       - completed
     branches:
-      - Int-Envi
+      - main
 
 jobs:
   build:
