@@ -3,14 +3,12 @@
 
 name: Setup Integration Environment
 
+# Only trigger, when the Dev unit testing workflow succeeded
 on:
-  push:
-    branches:
-    - main
-    - BuildContainersTest
-  pull_request:
-    branches:
-    - main
+  workflow_run:
+    workflows: ["Python Frontend testing"]
+    types:
+      - completed
 
 jobs:
   build:
