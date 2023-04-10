@@ -13,6 +13,9 @@ on:
       - completed
     branches:
       - Int-Envi
+  pull_request:
+     branches:
+      - main
 
 jobs:
   build:
