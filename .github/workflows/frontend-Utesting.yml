@@ -38,6 +38,8 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Build the Docker images
       run: |
+       docker build -t test-db ./db
+       docker run -dp 5432:5432 --name db-test-container-1 test-db 
        docker build -t test-frontend ./web
        docker run -dp 1172:1172 --name frontend-test-container-1 test-frontend   
     - name: Test with pytest
