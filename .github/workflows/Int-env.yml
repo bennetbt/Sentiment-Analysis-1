@@ -1,5 +1,5 @@
 # Name: Integration-environment.yml
-# Description: Spinning up Int-Env
+# Description: Spinning up Int-Env and running unit and Integration testing
 
 name: Setup Integration Environment
 
