@@ -38,7 +38,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Build Sentiment analysis service to run the unit tests
       run: |
-       docker build -f ./Dockerfile . -t sentimental-analysis-api-1
+       docker build -f ./sentimental_analyis/Dockerfile . -t sentimental-analysis-api-1
        #docker run --rm -p "1171:1171" sentimental-analysis-api-1
     - name: Unit test by connecting to docker
       run:  docker exec sentiment-analysis-api-1 sh -c 'pytest' 
