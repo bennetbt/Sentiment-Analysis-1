@@ -39,7 +39,7 @@ jobs:
     - name: Build Sentiment analysis service to run the unit tests
       run: |
        docker build -f ./sentimental_analysis/Dockerfile . -t sentimental-analysis-api-1
-       #docker run --rm -p "1171:1171" sentimental-analysis-api-1
+       docker run --rm -p "1171:1171" sentimental-analysis-api-1
     - name: Unit test by connecting to docker
       run:  docker exec sentiment-analysis-api-1 sh -c 'pytest' 
    # - name: Test with pytest
