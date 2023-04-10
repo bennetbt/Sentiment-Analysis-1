@@ -11,6 +11,8 @@ on:
     workflows: ["Python Frontend testing"]
     types:
       - completed
+    branches:
+      - Int-Envi
 
 jobs:
   build:
