@@ -36,12 +36,8 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Build Sentiment analysis service to run the unit tests
-      run: |
-       docker build -f ./sentimental_analysis/Dockerfile . -t sentimental-analysis-api-1
-       docker run --rm -p "1171:1171" sentimental-analysis-api-1
-    - name: Unit test by connecting to docker
-      run:  docker exec sentiment-analysis-api-1 sh -c 'pytest' 
+    - name: Build the Docker images to run tests for the dev environment
+      run: docker compose -f "docker-compose.yml" up -d --build
    # - name: Test with pytest
     #  run: |
      #   pytest
