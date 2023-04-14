@@ -13,4 +13,4 @@
 5. You will see that the workflow job is started in the Action Tab of the GIThub. You can either check this on the GIThub app or webpage
 
 The workflows starts one after the other. First the python backend unit testing starts, then the frontend unit tests run. 
-Finally, we spin up the Integration environment and running all the unit tests and Integration testing.!
+Finally, we spin up the Integration environment and running all the unit tests and Integration testing and once all the tests pass, the workflow will stop and remove the containers.!
