@@ -26,7 +26,7 @@ Run below in project directory to build the images and bring up the containers
 
 ***The above is because the init.sql is not copying to docker as intended by the dockerfile in the db direcory. The above workaround can manually let you copy it. Once its done, we dont need to do it multiple times. Just go ahead and refresh the webpage(Dont need to re-build the container). Please read future improvements for more details.
 
-There is an issue with SCRAM for Mac users. https://stackoverflow.com/questions/62807717/how-can-i-solve-postgresql-scram-authentication-problem . Please run export DOCKER_DEFAULT_PLATFORM=linux/amd64 under the project directory and then start you build.
+There is an issue with SCRAM for Mac users. https://stackoverflow.com/questions/62807717/how-can-i-solve-postgresql-scram-authentication-problem . Please run export DOCKER_DEFAULT_PLATFORM=linux/amd64 under the project directory and then start you build..!
 
 ***Also please add the line (platform: linux/amd64) under db service of docker-compose.yml file if you are a windows user.***
 
