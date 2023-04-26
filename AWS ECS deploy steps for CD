@@ -1,0 +1,45 @@
+1.	Login to AWS from your VS code terminal.
+
+2.	You can use the command aws ecr get-login-password --region region | docker login --username AWS --password-stdin AWS_account_id.dkr.ecr.region.amazonaws.com
+
+3.	Navigate to the AWS web portal and log in with your credentials. 
+
+4.	Under ‘Find Services’ search and select the Elastic Container Repository.
+
+5.	 Click on Get Started and enter your repository name (can be anything like test) and create a repository.
+
+6.	Then push your images from local to AWS ECR. You can take the reference from the command: docker image tag simple-app-image:latest  708995052028.dkr.ecr.us-east-2.amazonaws.com/ecr-tutorial-image:latest
+
+7.	Then run docker push 708995052028.dkr.ecr.us-east-2.amazonaws.com/ecr-tutorial-image:latest  to completely upload it.
+
+8.	Create a new task definition by clicking on the "Task Definitions" link in the left-hand navigation menu and clicking the "Create new Task Definition" button.
+
+9.	Select the "Fargate" launch type and choose the appropriate Task CPU and Memory requirements. You can also specify any required container ports at this stage.
+
+10.	Define your containers by clicking the "Add container" button. Enter a name for your container and specify the Docker image URI for the backend image. You can also specify environment variables and port mappings.
+
+11.	Repeat step 4 for each of your other containers (frontend, frontend_admin, and db).
+
+12.	Once all containers have been defined, click the "Create" button to create the task definition.
+
+13.	Create an ECS cluster by clicking on the "Clusters" link in the left-hand navigation menu, and then clicking the "Create Cluster" button.
+
+14.	Select the "Networking only" cluster type and click "Create".
+
+15.	Create a new service by clicking on the "Services" link in the left-hand navigation menu, and then clicking the "Create" button.
+
+16.	Select the task definition you created earlier, choose the appropriate number of desired tasks, and specify a name for your service.
+17.	Under "Load balancing", select the "Application Load Balancer" option and create a new load balancer or select an existing one. Specify the required listener and target group settings.
+
+18.	Click "Next" and configure your service's Auto Scaling settings as needed.
+
+19.	Click "Next", review your service settings, and then click "Create Service".
+
+20.	Wait for the service to deploy and become stable. You can monitor its progress on the ECS dashboard.
+
+21.	That's it! Your containers should now be deployed and accessible via the specified load balancer.
+
+References:
+
+1.	https://www.youtube.com/watch?v=zs3tyVgiBQQ
+2.	https://towardsdatascience.com/deploying-a-docker-container-with-ecs-and-fargate-7b0cbc9cd608 
