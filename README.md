@@ -16,6 +16,22 @@ Run below in project directory to build the images and bring up the containers
 
 ***docker compose up --build*** and can access the webpage with the url http://localhost:1172/ 
 
+We have added admin module that ask you with username and password and once autheticated, it will log you to the admin module.
+Username and password are hard coded.
+
+**Username : admin**
+
+**password: admin**
+
+**The admin module has following functionalities:**
+The average sentiment score,
+The Number and Percentage of “Positive” Sentiments,
+The Number and Percentage of “Negative” Sentiments,
+The Number and Percentage of “Neutral” Sentiments,
+Deleting a particular sentence,
+Editing the sentiment of a particular sentence (e.g., from negative to positive) in the case that these are perceived to be incorrect.
+
+
 ***If you see 'Internal server error' when trying to acccess the webpage, Please execute below commands in your project directory:***
 
 1. cd db       **//changes directory to db from your project directory//**
