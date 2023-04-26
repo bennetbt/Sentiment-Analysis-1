@@ -28,6 +28,62 @@ async def index(request: Request):
             div.centered {
                 text-align: center;
             }
+            div.header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: #f2f2f2;
+                padding: 10px;
+                position: relative;
+                height: 50px;
+            }
+            button.admin {
+                background-color: #4CAF50;
+                color: white;
+                padding: 10px 18px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                margin-right: 10px;
+                position: absolute;
+                top: 50px;
+                right: 50px;
+            }
+            button.admin:last-of-type {
+                margin-right: 0; /* remove margin for the last button */
+                        }
+            #login-form {
+                display: none;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 300px;
+                padding: 20px;
+                background-color: #f2f2f2;
+                border-radius: 5px;
+                box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+            }
+            #login-form label {
+                display: block;
+                margin-bottom: 10px;
+            }
+            #login-form input {
+                display: block;
+                margin-bottom: 20px;
+                width: 100%;
+                padding: 10px;
+                border-radius: 5px;
+                border: none;
+                box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            }
+            #login-form button {
+                background-color: #4CAF50;
+                color: white;
+                padding: 10px 18px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
         </style>
         <script>
 function sendText() {
@@ -56,6 +112,40 @@ function sendText() {
     <body>
        <div class="centered" style="background-color: #f2f2f2; padding: 20px;">
     <h1 style="text-align: center;">Welcome to Sentiment Analyzer</h1>
+    <button class="admin" onclick="showLoginForm()">Admin Login</button>
+<div id="login-form">
+  <h2>Login</h2>
+  <form onsubmit="login(); return false;">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username">
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
+    <br><br>
+    <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 18px; border: none; border-radius: 4px; cursor: pointer;">Login</button>
+    <button onclick="closeLoginForm()" style="background-color: #ff0000; color: white; padding: 10px 18px; border: none; border-radius: 4px; cursor: pointer;">Close</button>
+  </form>
+</div>
+<script>
+function showLoginForm() {
+  document.getElementById("login-form").style.display = "block";
+}
+function closeLoginForm() {
+  document.getElementById("login-form").style.display = "none";
+}
+function login() {
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
+
+if (username === "admin" && password === "admin") {
+  // authenticated, redirect to admin page
+  window.location.replace('http://localhost:1173/');
+  // do something with the Python code
+} else {
+  alert("Invalid username or password!");
+  }
+}
+</script>
+        <div class="centered" style="background-color: #f2f2f2; padding: 20px;">
     	<p></p>	
 	<input type="image" img align="top" src="https://www.freecodecamp.org/news/content/images/2020/09/wall-5.jpeg" width="280" height="200">
     <div style="text-align:center">
@@ -94,10 +184,6 @@ function sendText() {
                     <td style="border: 1px solid black; text-align:center;">{text}</td>
                     <td style="border: 1px solid black; text-align:center;">{sentiment}</td>
                     <td style="border: 1px solid black; text-align:center;">{score}</td>
-                    <td style="border: 1px solid black; text-align:center;">
-                 <form action="/sentiment/{ID}" method="post">
-    <input type="hidden" name="_method" value="post">
-    <button type="submit">Delete</button>
 </form>
 
         </form> 
@@ -133,15 +219,15 @@ async def analyze_sentiment(text_data: TextData):
 
 
 
-@app.post("/sentiment/{ID}")
-async def delete_sentiment(ID: int):
-    conn = psycopg2.connect(host='db', database='Sentimental_Analysis', user='pgsqldev4', password='enter')
-    cur = conn.cursor()
-    cur.execute("DELETE FROM sentiments WHERE ID = %s", (ID,))
-    conn.commit()
-    cur.close()
-    conn.close()
-    return RedirectResponse(url="http://localhost:1172", status_code=303)
+# @app.post("/sentiment/{ID}")
+# async def delete_sentiment(ID: int):
+#     conn = psycopg2.connect(host='db', database='Sentimental_Analysis', user='pgsqldev4', password='enter')
+#     cur = conn.cursor()
+#     cur.execute("DELETE FROM sentiments WHERE ID = %s", (ID,))
+#     conn.commit()
+#     cur.close()
+#     conn.close()
+#     return RedirectResponse(url="http://localhost:1172", status_code=303)
 
 
 if __name__ == "__main__":

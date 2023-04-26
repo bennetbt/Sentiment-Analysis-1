@@ -29,10 +29,10 @@ class TestSentimentAnalyzer(unittest.TestCase):
         self.assertEqual(response_data["sentiment"], "positive")
         self.assertIsInstance(response_data["score"], float)
 
-    def test_delete_history(self):
-        response = self.client.post("/sentiment/1")
-        self.assertEqual(response.status_code, 303)  # redirect status code
-        self.assertEqual(response.headers["location"], "http://localhost:1172")
+    #def test_delete_history(self):
+        #response = self.client.post("/sentiment/1")
+       # self.assertEqual(response.status_code, 303)  # redirect status code
+       # self.assertEqual(response.headers["location"], "http://localhost:1172")
         
 
 if __name__ == "__main__":

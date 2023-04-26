@@ -42,3 +42,16 @@ services:
     depends_on:
       - api
     restart: always
+
+  web_admin:
+    build:
+      context: ./web_admin
+      dockerfile: Dockerfile
+    ports:
+      - "1173:1173"
+    environment:
+      ENVIRONMENT: prod
+      API_URL: http://api:1171/sentiment
+    depends_on:
+      - api
+    restart: always

@@ -1,4 +1,4 @@
-# Sentiment-Analysis for CSCI 5400 by Uday, Neel, Pragna and Ramiro under Dr. Bennett. 
+# Sentiment-Analysis for CSCI 5400 under Dr. Bennett. 
 **Before starting, We wanted to thank Dr.Jacob Gilenwater for sharing the crash courses on HTML and FASTAPI examples. That helped alot.**
 **Intallation Materals:**
 1. VSCode
