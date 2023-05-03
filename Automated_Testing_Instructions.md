@@ -6,7 +6,7 @@
 3. Please click on the Actions tab and you can see the workflows running one by one. 
 
 **Setup and Instructions through and IDE:**
-1. Install VSCode and Clone the repository.
+1. Install VSCode and Clone the repository.  
 2. Once the repository is clone. make some changes in the readme file and save the file.
 3. Once the file is saved, click on the source control option, which is on the left-end side of the VSCode tool.
 4. Please type a message of the change that has been made and then click on commit and select yes. Then you need to click on sync changes and select yes.
