@@ -3,7 +3,7 @@
 **Setup and Instructions through GIThub webpage:**
 1. Need a broswer and GIThub account to access the repository.
 2. Please fork our repository and do some edit to a readme file.
-3. Please click on the Actions tab and you can see the workflows running one by one.
+3. Please click on the Actions tab and you can see the workflows running one by one. 
 
 **Setup and Instructions through and IDE:**
 1. Install VSCode and Clone the repository.
